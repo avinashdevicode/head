@@ -1,0 +1,55 @@
+{% extends 'masterpage.html' %}
+{% block auth %}
+Welcome to Registration form
+{% endblock %}
+{% block content %}
+<form method="post" action="{%url 'register' %}" > 
+{% csrf_token %}
+{% if error %}
+{{error}}
+{% endif %}
+<table>
+	<tr>
+		<td>
+		Required User name:
+		</td>
+		<td>
+		<input type="text" name='username'>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		Password:
+		</td>
+		<td>
+		<input type="password" name= 'password'>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		Reenter your password 
+		</td>
+		<td>
+		<input type="password" name= 'password2'>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		email:
+		</td>
+		<td>
+		<input type="email" name= 'email'>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		<input type="submit" value='register' >
+		</td>
+		<td>
+		</td>
+	</tr>
+</table>
+
+
+
+</form>{% endblock %}

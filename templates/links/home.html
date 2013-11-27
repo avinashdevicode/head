@@ -1,0 +1,30 @@
+
+{% extends 'masterpage.html' %}
+{% block content %}
+
+<ul>
+{% for link in links %}
+
+<li>
+	<a href="{{link.url}}">{{link.title}}</a>-- No of votes {{link.votes}}
+</li>
+
+{% endfor %}
+</ul>
+
+<div class = "Pagination">
+	<span class="step-links">
+		{% if links.has_previous %}
+			<a href="?page={{links.privious_page_number}}">Previous</a>
+		{% endif %}
+		<span class="current" >
+			page {{links.number}} of {{links.paginator.num_pages}}
+		</span>
+		{% if links.has_next %}
+			<a href="?page={{links.next_page_number}}">Next</a>
+		{% endif %}
+	</span>
+</div>
+
+{% endblock %}
+

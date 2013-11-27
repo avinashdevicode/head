@@ -1,0 +1,35 @@
+{% extends 'masterpage.html' %}
+{% block auth %}
+<h2>Welcome to login page</h2>
+{% endblock %}
+{% block content %}
+<form action="{%url 'login'%}" method="post">
+{% csrf_token %}
+<table>
+	<tr>
+		<td>
+		User name: 	
+		</td>
+		<td>
+			<input type="text" name='username' >
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Password: 
+		</td>
+		<td>
+			<input type="password" name='password' >
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="submit" value="Login" >
+		</td>
+		<td>
+			
+		</td>
+	</tr>
+</table>
+</form>
+{% endblock %}

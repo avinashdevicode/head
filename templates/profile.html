@@ -1,0 +1,39 @@
+{% extends 'masterpage.html' %}
+
+
+{%block content%}
+</br>Hey this is {{user.first_name}}'s profile page
+
+<table border="1px">
+<tr>
+	<td>
+	User Name
+	</td>
+	<td>
+	{{user.username}}
+	</td>
+</tr>
+<tr>
+	<td>
+	email
+	</td>
+	<td>
+	{{user.email}}
+	</td>
+	<td>
+	<form action='{%url 'profile_update' %}'>
+		<input type="submit" value="Edit" >
+	</form>
+	</td>
+</tr>
+<tr>
+	<td>
+	Bio
+	</td>
+	<td>
+	{{bio}}
+	</td>
+</tr>
+</table>
+
+{% endblock %}
