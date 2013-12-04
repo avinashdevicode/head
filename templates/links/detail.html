@@ -1,0 +1,33 @@
+
+
+{% extends 'masterpage.html' %}
+
+{% block content %}
+</br>
+
+{% for lin in link %}
+{{lin.title}}
+is submitted by {{lin.submitter}} on {{lin.submitted_on}}
+
+<form action="{%url 'update_link' pk=lin.pk %}">
+<input type = "submit" value ='update'> 
+</form>
+<form action ="{%url 'delete_link' pk=lin.pk %}" >
+<input type="submit"  value ='Delate'>
+</form>
+<form action="{%url 'detail_view' pk=lin.pk %}" method='post'>
+{% csrf_token %}
+{{form}} 
+<input type="submit" value = "Add comments" >
+</form>
+
+{% endfor %}
+{% for comment in comments %}
+</br>
+{{comment.commenter}} ----------- {{comment.date_commented}}</br>
+{{comment.description}}
+{% endfor %}
+{% endblock %}
+
+
+

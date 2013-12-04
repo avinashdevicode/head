@@ -1,0 +1,21 @@
+
+{% extends 'masterpage.html' %}
+
+{% block content%}
+<form action='{%url 'create_link'  %}' method="post">
+<table>
+	{% for field in formset %}
+
+	<tr>
+		<td>{{field.label_tag}}</td>
+
+		<td>{{field}}</td>
+	</tr>
+
+	{% endfor %}
+</table>
+
+<input type = "Submit" value='create Form' >
+</form>
+
+{% endblock %}

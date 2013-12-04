@@ -22,5 +22,9 @@ urlpatterns = patterns('',
     url(r'logout/', 'links.views.logout_view', name='logout'),
     url(r'register/', 'links.views.register_view', name= 'register'),
     url(r'profile/', login_required(profile_view), name='profile'),
-    url(r'profile_update/', login_required(profile_update_view), name = 'profile_update' )
+    url(r'profile_update/', login_required(profile_update_view), name = 'profile_update' ),
+    url(r'link/(?P<pk>\d+)', 'links.views.detail_view', name = 'detail_view'),
+    url(r'link/up/(?P<pk>\d+)', 'links.views.update_link_view', name = 'update_link'),
+    url(r'link/de/(?P<pk>\d+)', 'links.views.delete_link_view', name = 'delete_link'),
+    
 )

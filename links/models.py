@@ -7,6 +7,8 @@ class LinkVoteCounterManager(models.Manager):
     def get_query_set(self):
         return super(LinkVoteCounterManager, self).get_query_set().annotate(
                      votes = Count('vote')).order_by('-votes')
+    def get_query_set(self):
+        return su
 
 
 class Link(models.Model):
@@ -44,3 +46,11 @@ def create_user_profile(sender, instance, created, **kwargs):
         
 from django.db.models.signals import post_save
 post_save.connect(create_user_profile, sender=User)
+
+
+class comment(models.Model):
+    commenter = models.ForeignKey(User)
+    link = models.ForeignKey(Link)
+    date_commented = models.DateField(default= datetime.now())
+    description = models.TextField()
+    

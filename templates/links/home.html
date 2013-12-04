@@ -1,21 +1,21 @@
 
 {% extends 'masterpage.html' %}
 {% block content %}
-
-<ul>
+{{page_index}}
+<ol start="{{page_index}}">
 {% for link in links %}
 
 <li>
-	<a href="{{link.url}}">{{link.title}}</a>-- No of votes {{link.votes}}
+	<a href="{%url 'detail_view' pk=link.pk %}">{{link.title}}</a>-- No of votes {{link.votes}}
 </li>
 
 {% endfor %}
-</ul>
+</ol>
 
 <div class = "Pagination">
 	<span class="step-links">
 		{% if links.has_previous %}
-			<a href="?page={{links.privious_page_number}}">Previous</a>
+			<a href="?page={{links.previous_page_number}}">Previous</a>
 		{% endif %}
 		<span class="current" >
 			page {{links.number}} of {{links.paginator.num_pages}}
